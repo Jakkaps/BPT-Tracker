@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B470A60322BA4A0500872D82 /* MeasurementRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B470A60222BA4A0500872D82 /* MeasurementRow.swift */; };
+		B470A60522BA4A6A00872D82 /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B470A60422BA4A6A00872D82 /* Measurement.swift */; };
 		B47EC68C22BA214A0035C45C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47EC68B22BA214A0035C45C /* AppDelegate.swift */; };
 		B47EC68E22BA214A0035C45C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47EC68D22BA214A0035C45C /* SceneDelegate.swift */; };
 		B47EC69022BA214A0035C45C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47EC68F22BA214A0035C45C /* ContentView.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B470A60222BA4A0500872D82 /* MeasurementRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementRow.swift; sourceTree = "<group>"; };
+		B470A60422BA4A6A00872D82 /* Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurement.swift; sourceTree = "<group>"; };
 		B47EC68822BA214A0035C45C /* BPT Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BPT Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B47EC68B22BA214A0035C45C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B47EC68D22BA214A0035C45C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +44,7 @@
 		B47EC67F22BA214A0035C45C = {
 			isa = PBXGroup;
 			children = (
+				B470A60422BA4A6A00872D82 /* Measurement.swift */,
 				B47EC68A22BA214A0035C45C /* BPT Tracker */,
 				B47EC68922BA214A0035C45C /* Products */,
 			);
@@ -63,6 +68,7 @@
 				B47EC69622BA214F0035C45C /* LaunchScreen.storyboard */,
 				B47EC69922BA214F0035C45C /* Info.plist */,
 				B47EC69322BA214F0035C45C /* Preview Content */,
+				B470A60222BA4A0500872D82 /* MeasurementRow.swift */,
 			);
 			path = "BPT Tracker";
 			sourceTree = "<group>";
@@ -148,6 +154,8 @@
 			files = (
 				B47EC68C22BA214A0035C45C /* AppDelegate.swift in Sources */,
 				B47EC68E22BA214A0035C45C /* SceneDelegate.swift in Sources */,
+				B470A60522BA4A6A00872D82 /* Measurement.swift in Sources */,
+				B470A60322BA4A0500872D82 /* MeasurementRow.swift in Sources */,
 				B47EC69022BA214A0035C45C /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
