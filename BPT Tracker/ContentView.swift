@@ -13,15 +13,18 @@ struct ContentView : View {
     
     var body: some View {
         NavigationView {
+            NavigationButton(destination: PreferencesView()){
+                Text("Settings")
+            }
             VStack{
                 Rectangle()
                 List(measurements, rowContent: MeasurementRow.init)
             }
                 .navigationBarTitle(Text("01/06 - 28/06"))
                 .navigationBarItems(leading:
-                    Button(action: { print("Settings tapped")
-                    }) { Text("Settings")
-                })
+                    NavigationButton(destination: PreferencesView()){
+                        Text("Settings")
+                    })
         }
     }
 }
