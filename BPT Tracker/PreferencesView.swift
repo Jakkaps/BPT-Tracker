@@ -33,7 +33,7 @@ struct PreferencesView : View {
                         }
                 }
                 VStack{
-                    HStack{€
+                    HStack{
                         Text("From")
                         Spacer()
                         Text("\(start, formatter: formatter)")

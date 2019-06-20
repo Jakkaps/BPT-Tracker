@@ -10,23 +10,33 @@ import SwiftUI
 
 struct Graph : View {
     let measurements: [Measurement]
+    let width:CGFloat = 1000.0
     
     var body: some View {
         ScrollView{
-            HStack{
-                ForEach(measurements){ measurement -> _ModifiedContent<VStack<TupleView<(Spacer, _ModifiedContent<Point, _OffsetEffect>, Text)>>, _PaddingLayout> in
-                    let offset = measurement.value * -15
-                    return VStack{
-                        Spacer()
-                        Point()
-                            .offset(x: 0, y: CGFloat(offset))
-                        Text("\(measurement.value)")
-                    }.padding()
-                }
+            VStack{
+                GeometryReader{ geometry in
+                    Path{ path in
+                        path.move(to: CGPoint(
+                            x: 0.0,
+                            y: 500.0//CGFloat(self.measurements[i].value)
+                            )
+                        )
+                        
+                        
+                        for i in 0 ..< self.measurements.count {
+                            path.addLine(to: CGPoint(
+                                x: CGFloat(i)*(geometry.size.width/24),
+                                y: CGFloat(self.measurements[i].value) * (geometry.size.height / 20)
+                                )
+                            )
+                        }
+                        }
+                        .strokedPath(StrokeStyle(lineWidth: 1))
+                    
+                    }.frame(width: width, height: 100)
             }
-                .frame(height: 350)
         }
-            .frame(height: 350)
     }
 }
 

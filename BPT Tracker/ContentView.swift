@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ContentView : View {
-    let measurements = [Measurement(date: Date(), value: 7), Measurement(date: Date(), value: 7), Measurement(date: Date(), value: 7)]
+    let measurements = [Measurement(date: Date(), value: 7), Measurement(date: Date(), value: 10), Measurement(date: Date(), value: 5), Measurement(date: Date(), value: 1), Measurement(date: Date(), value: 4), Measurement(date: Date(), value: 5), Measurement(date: Date(), value: 9), Measurement(date: Date(), value: 2), Measurement(date: Date(), value: 8), Measurement(date: Date(), value: 1), Measurement(date: Date(), value: 7), Measurement(date: Date(), value: 10), Measurement(date: Date(), value: 5), Measurement(date: Date(), value: 1), Measurement(date: Date(), value: 4), Measurement(date: Date(), value: 5), Measurement(date: Date(), value: 9), Measurement(date: Date(), value: 2), Measurement(date: Date(), value: 8), Measurement(date: Date(), value: 1), Measurement(date: Date(), value: 9), Measurement(date: Date(), value: 2), Measurement(date: Date(), value: 8), Measurement(date: Date(), value: 1)]
     
     var body: some View {
         NavigationView {
@@ -17,7 +17,7 @@ struct ContentView : View {
                 Text("Settings")
             }
             VStack{
-                Rectangle()
+                Graph(measurements: measurements)
                 List(measurements, rowContent: MeasurementRow.init)
             }
                 .navigationBarTitle(Text("01/06 - 28/06"))
