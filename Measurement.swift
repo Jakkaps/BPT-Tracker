@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-struct Measurement: Identifiable {
+struct Measurement: Identifiable, Codable {
     var date: Date
     let id = UUID()
     var value: Int

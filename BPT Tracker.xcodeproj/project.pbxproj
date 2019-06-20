@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B42BD84C22BBA5AC0036E7D3 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42BD84B22BBA5AC0036E7D3 /* Data.swift */; };
 		B470A60322BA4A0500872D82 /* MeasurementRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B470A60222BA4A0500872D82 /* MeasurementRow.swift */; };
 		B470A60522BA4A6A00872D82 /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B470A60422BA4A6A00872D82 /* Measurement.swift */; };
 		B470A60722BA515C00872D82 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = B470A60622BA515C00872D82 /* Graph.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B42BD84B22BBA5AC0036E7D3 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		B470A60222BA4A0500872D82 /* MeasurementRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementRow.swift; sourceTree = "<group>"; };
 		B470A60422BA4A6A00872D82 /* Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurement.swift; sourceTree = "<group>"; };
 		B470A60622BA515C00872D82 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				B47EC69322BA214F0035C45C /* Preview Content */,
 				B470A60222BA4A0500872D82 /* MeasurementRow.swift */,
 				B470A60622BA515C00872D82 /* Graph.swift */,
+				B42BD84B22BBA5AC0036E7D3 /* Data.swift */,
 			);
 			path = "BPT Tracker";
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 				B470A60322BA4A0500872D82 /* MeasurementRow.swift in Sources */,
 				B47EC69022BA214A0035C45C /* ContentView.swift in Sources */,
 				B470A60922BA9ABE00872D82 /* PreferencesView.swift in Sources */,
+				B42BD84C22BBA5AC0036E7D3 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

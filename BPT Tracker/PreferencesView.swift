@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct PreferencesView : View {
+    var data: Data
+    
     @State private var frequencySelected = 0
     @State private var start = Date()
     @State private var end = Date()
@@ -68,11 +70,15 @@ struct PreferencesView : View {
                 }
             }
             
-        }.listStyle(.grouped)
+        }
+        .listStyle(.grouped)
+        .onDisappear{
+            self.data.updatePreferences(start: self.start, end: self.end, frequency: Frequency.allCases[self.frequencySelected])
+        }
     }
 }
 
-enum Frequency: String, CaseIterable{
+enum Frequency: String, CaseIterable, Codable{
     case quarter = "15 minutes"
     case halfHour = "30 minutes"
     case hour = "hour"
@@ -84,7 +90,7 @@ enum Frequency: String, CaseIterable{
 #if DEBUG
 struct PreferencesView_Previews : PreviewProvider {
     static var previews: some View {
-        PreferencesView()
+        PreferencesView(data: Data())
     }
 }
 #endif
