@@ -12,28 +12,25 @@ struct ContentView : View {
     let measurements = [Measurement(date: Date(), value: 7), Measurement(date: Date(), value: 10), Measurement(date: Date(), value: 5), Measurement(date: Date(), value: 1), Measurement(date: Date(), value: 4), Measurement(date: Date(), value: 5), Measurement(date: Date(), value: 9), Measurement(date: Date(), value: 2), Measurement(date: Date(), value: 8), Measurement(date: Date(), value: 1), Measurement(date: Date(), value: 7), Measurement(date: Date(), value: 10), Measurement(date: Date(), value: 5), Measurement(date: Date(), value: 1), Measurement(date: Date(), value: 4), Measurement(date: Date(), value: 5), Measurement(date: Date(), value: 9), Measurement(date: Date(), value: 2), Measurement(date: Date(), value: 8), Measurement(date: Date(), value: 1), Measurement(date: Date(), value: 9), Measurement(date: Date(), value: 2), Measurement(date: Date(), value: 8), Measurement(date: Date(), value: 1)]
     
     @State var showEnergziedSheet = false
+    var energyLevel = 5
     
-    /*var buttons: [ActionSheet.Button]{
-        var btns = [ActionSheet.Button]()
+    //Buttons from 1-10 for adding your current energy level
+    var energyButtons: [ActionSheet.Button]{
+        var buttons = [ActionSheet.Button]()
         
-        ForEach((0...10)){
-            btns.append(.default(Text("Show Sheet"), onTrigger: {
-                self.showingSheet = false
-        }))
-        return btns
+        for i in (1...10).reversed(){
+            buttons.append(.default(Text("\(i)"), onTrigger: {
+                self.showEnergziedSheet = false
+                self.data.add(measurement: Measurement(date: Date(), value: i))
+            }))
+        }
+        
+        buttons.append(.cancel())
+        return buttons
     }
-    
-    var btn: ActionSheet.Button{
-        .default(Text("Show Sheet"), onTrigger: {
-            self.data.add(measurement: Measurement(date: Date(), value: 1))
-            self.showEnergziedSheet = false
-        })
-    }
-    
     var sheet: ActionSheet {
-        
-        return ActionSheet(title: Text("How energized do you feel?"), message: Text("Select a number from 1-10"), buttons: buttons)
-    }*/
+        ActionSheet(title: Text("How energized are you?"), message: Text("Select a number from 1-10"), buttons: energyButtons)
+    }
     
     @ObjectBinding var data = Data()
     
@@ -45,42 +42,15 @@ struct ContentView : View {
             VStack{
                 Graph(measurements: measurements)
                 List(data.allMeasurements, rowContent: MeasurementRow.init)
-            }
-                .navigationBarTitle(Text("01/06 - 28/06"))
-                .navigationBarItems(trailing: PresentationButton(Text("Add"), destination: EnergyView(data: data)))
-        }
-    }
-}
-
-struct EnergyView: View{
-    @State var selected = 5
-    var data: Data
-    
-    var energies: [Int]{
-        var e = [Int]()
-        for i in 1...10{
-            e.append(i)
-        }
-        
-        return e
-    }
-    var body: some View{
-        List(energies) {i in
-            
-            HStack{
-                if self.selected == i{
-                    Text("You´re feeling")
-                }else{
-                    Text("l")
+                }.navigationBarTitle(Text("01/06 - 28/06"))
+                .navigationBarItems(trailing:
+                    Button(action: {
+                        self.showEnergziedSheet = true
+                    }) {
+                        Text("Add")
                 }
-                Spacer()
-                Text("\(i)")
-                }.tapAction{
-                    self.selected = i
-            }
-            }.onDisappear{
-                
-                self.data.add(measurement: Measurement(date: Date(), value: self.selected))
+                .presentation(showEnergziedSheet ? sheet : nil)
+            )
         }
     }
 }

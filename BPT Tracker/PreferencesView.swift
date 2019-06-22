@@ -15,6 +15,7 @@ struct PreferencesView : View {
     @State private var start = 0
     @State private var end = 23
     @State private var until = Date()
+    @State private var showingDatePickerAlert = false
     
     private var formatter: DateFormatter{
         let f = DateFormatter()
@@ -56,10 +57,10 @@ struct PreferencesView : View {
                         }
                     }
                 }
-                HStack{
+                
+                //DatePicker($until, maximumDate: Date(), displayedComponents: .date)
+                DatePicker($until, displayedComponents: .date) {
                     Text("Until")
-                    Spacer()
-                    Text("\(until, formatter: formatter)")
                 }
             }
             
