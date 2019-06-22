@@ -12,13 +12,13 @@ struct PreferencesView : View {
     var data: Data
     
     @State private var frequencySelected = 0
-    @State private var start = Date()
-    @State private var end = Date()
+    @State private var start = 0
+    @State private var end = 23
     @State private var until = Date()
     
-    var formatter: DateFormatter {
+    private var formatter: DateFormatter{
         let f = DateFormatter()
-        f.dateFormat = "HH"
+        f.dateFormat = "MM-dd-yyy"
         return f
     }
     
@@ -38,7 +38,11 @@ struct PreferencesView : View {
                     HStack{
                         Text("From")
                         Spacer()
-                        Text("\(start, formatter: formatter)")
+                        Picker(selection: $start, label: Text("")) {
+                            ForEach(0 ..< 24){
+                                Text("\($0):00").tag($0)
+                            }
+                        }
                     }
 
                 }
@@ -46,13 +50,16 @@ struct PreferencesView : View {
                 HStack{
                     Text("To")
                     Spacer()
-                    DatePicker($end,
-                               displayedComponents: .hourAndMinute)
+                    Picker(selection: $end, label: Text("")) {
+                        ForEach(0 ..< 24){
+                            Text("\($0):00").tag($0)
+                        }
+                    }
                 }
                 HStack{
                     Text("Until")
-                    DatePicker($until,
-                               displayedComponents: .date)
+                    Spacer()
+                    Text("\(until, formatter: formatter)")
                 }
             }
             
@@ -73,14 +80,12 @@ struct PreferencesView : View {
         }
         .listStyle(.grouped)
         .onDisappear{
-            self.data.updatePreferences(start: self.start, end: self.end, frequency: Frequency.allCases[self.frequencySelected])
+            self.data.updatePreferences(start: self.start, end: self.end, frequency: Frequency.allCases[self.frequencySelected], until: self.until)
         }
     }
 }
 
 enum Frequency: String, CaseIterable, Codable{
-    case quarter = "15 minutes"
-    case halfHour = "30 minutes"
     case hour = "hour"
     case twoHours = "two hours"
     case threeHours = "three hours"

@@ -62,21 +62,16 @@ class Data: BindableObject{
         return averagedMeasurements
     }
     
-    func updatePreferences(start: Date, end: Date, frequency: Frequency){
+    func updatePreferences(start: Int, end: Int, frequency: Frequency, until: Date){
         let encoder = JSONEncoder()
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH"
-        
-        let startString = formatter.string(from: start)
-        if let savedData = try? encoder.encode(startString) {
+        if let savedData = try? encoder.encode(start) {
             defaults.set(savedData, forKey: defaultsKeys.startHour)
         } else {
             print("Failed to save")
         }
         
-        let endString = formatter.string(from: end)
-        if let savedData = try? encoder.encode(endString) {
+        if let savedData = try? encoder.encode(end) {
             defaults.set(savedData, forKey: defaultsKeys.endHour)
         } else {
             print("Failed to save")
@@ -87,6 +82,13 @@ class Data: BindableObject{
         } else {
             print("Failed to save")
         }
+        
+        if let savedData = try? encoder.encode(until) {
+            defaults.set(savedData, forKey: defaultsKeys.until)
+        } else {
+            print("Failed to save")
+        }
+        
     }
     
     private func save(){
@@ -104,4 +106,5 @@ struct defaultsKeys {
     static let startHour = "start_hour"
     static let endHour = "end_hour"
     static let freqency = "frequency"
+    static let until = "until"
 }
