@@ -10,6 +10,7 @@ import SwiftUI
 
 struct Graph : View {
     let measurements: [Measurement]
+    let relativeScale: CGFloat = 11.0
     
     let width: CGFloat = 1000.0
     var formatter: DateFormatter{
@@ -22,28 +23,37 @@ struct Graph : View {
         GeometryReader{ size in
             ScrollView {
                 VStack(alignment: .leading){
+                    Spacer()
                     GeometryReader{ geometry in
-                        Path{ path in
-                            path.move(to: CGPoint(
-                                x: 0.0,
-                                y: CGFloat(self.measurements[0].value) * (geometry.size.height / 20)
-                                )
-                            )
-                            
-                            
-                            for i in 0 ..< self.measurements.count {
-                                path.addLine(to: CGPoint(
-                                    x: CGFloat(i)*(geometry.size.width/24),
-                                    y: CGFloat(self.measurements[i].value) * (geometry.size.height / 20)
+                        Group{
+                            Path{ path in
+                                path.move(to: CGPoint(
+                                    x: 0.0,
+                                    y: CGFloat(self.measurements[0].value) * (geometry.size.height / self.relativeScale)
                                     )
                                 )
+                                
+                                
+                                for i in 0 ..< self.measurements.count {
+                                    path.addLine(to: CGPoint(
+                                        x: CGFloat(i)*(geometry.size.width/24),
+                                        y: CGFloat(self.measurements[i].value) * -(geometry.size.height / self.relativeScale)
+                                        )
+                                    )
+                                }
                             }
+                            .strokedPath(StrokeStyle(lineWidth: 3))
+                                .fill(Color .green)
+                            
+                            ForEach((0 ..< self.measurements.count)){i in
+                                Point().offset(
+                                    x: CGFloat(i)*(geometry.size.width/24) - 5.0,
+                                    y: CGFloat(self.measurements[i].value) * -(geometry.size.height / self.relativeScale) - 5.0
+                                )
                             }
-                            .strokedPath(StrokeStyle(lineWidth: 1))
+                        }
                         
-                        }.frame(width: self.width, height: 100)
-                    
-                    Spacer()
+                    }.frame(width: self.width, height: size.size.height/3)
                     
                     ZStack{
                         ForEach((0 ..< self.measurements.count)){i in
