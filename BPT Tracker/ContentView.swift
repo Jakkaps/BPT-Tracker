@@ -43,7 +43,7 @@ struct ContentView : View {
                 Text("Settings")
             }
             VStack{
-                Graph(measurements: measurements)
+                Graph(measurements: data.getAverageMeasurements())
                 List(data.allMeasurements, rowContent: MeasurementRow.init)
             }
                 .navigationBarTitle(Text("01/06 - 28/06"))

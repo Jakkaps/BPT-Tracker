@@ -12,6 +12,11 @@ struct Graph : View {
     let measurements: [Measurement]
     
     let width: CGFloat = 1000.0
+    var formatter: DateFormatter{
+        let f = DateFormatter()
+        f.dateFormat = "hh"
+        return f
+    }
     
     var body: some View {
         ScrollView {
@@ -40,8 +45,8 @@ struct Graph : View {
             Spacer()
             
             ZStack{
-                    ForEach((0 ..< 24)){i in
-                        Text("\(i)")
+                    ForEach((0 ..< measurements.count)){i in
+                        Text("\(self.measurements[i].date, formatter: self.formatter)")
                             .offset(x: (self.width/24)*CGFloat(i) - self.width/2, y: 0)
                     }
                 }
