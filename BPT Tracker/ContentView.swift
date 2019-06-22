@@ -40,13 +40,13 @@ struct ContentView : View {
     var body: some View {
         NavigationView {
             NavigationButton(destination: PreferencesView(data: data)){
-                Text("Settings")
+                Text("Add")
             }
             VStack{
                 Graph(measurements: data.getAverageMeasurements())
                 List(data.allMeasurements, rowContent: MeasurementRow.init)
             }
-                .navigationBarTitle(Text("01/06 - 28/06"))
+                .navigationBarTitle(Text("01/06 - 28/06"), displayMode: .inline)
                 .navigationBarItems(trailing: PresentationButton(Text("Add"), destination: EnergyView(data: data)))
         }
     }
