@@ -10,33 +10,53 @@ import SwiftUI
 
 struct Graph : View {
     let measurements: [Measurement]
-    let width:CGFloat = 1000.0
+    
+    let width: CGFloat = 1000.0
+    var formatter: DateFormatter{
+        let f = DateFormatter()
+        f.dateFormat = "hh"
+        return f
+    }
     
     var body: some View {
-        ScrollView{
-            VStack{
-                GeometryReader{ geometry in
-                    Path{ path in
-                        path.move(to: CGPoint(
-                            x: 0.0,
-                            y: 500.0//CGFloat(self.measurements[i].value)
-                            )
-                        )
-                        
-                        
-                        for i in 0 ..< self.measurements.count {
-                            path.addLine(to: CGPoint(
-                                x: CGFloat(i)*(geometry.size.width/24),
-                                y: CGFloat(self.measurements[i].value) * (geometry.size.height / 20)
+        GeometryReader{ size in
+            ScrollView {
+                VStack(alignment: .leading){
+                    GeometryReader{ geometry in
+                        Path{ path in
+                            path.move(to: CGPoint(
+                                x: 0.0,
+                                y: CGFloat(self.measurements[0].value) * (geometry.size.height / 20)
                                 )
                             )
-                        }
-                        }
-                        .strokedPath(StrokeStyle(lineWidth: 1))
+                            
+                            
+                            for i in 0 ..< self.measurements.count {
+                                path.addLine(to: CGPoint(
+                                    x: CGFloat(i)*(geometry.size.width/24),
+                                    y: CGFloat(self.measurements[i].value) * (geometry.size.height / 20)
+                                    )
+                                )
+                            }
+                            }
+                            .strokedPath(StrokeStyle(lineWidth: 1))
+                        
+                        }.frame(width: self.width, height: 100)
                     
-                    }.frame(width: width, height: 100)
+                    Spacer()
+                    
+                    ZStack{
+                        ForEach((0 ..< self.measurements.count)){i in
+                            Text("\(self.measurements[i].date, formatter: self.formatter)")
+                                .offset(x: (self.width/24)*CGFloat(i), y: 0)
+                        }
+                    }
+                    }
+                    .padding()
+                    .frame(height: size.size.height)
             }
         }
+        
     }
 }
 
