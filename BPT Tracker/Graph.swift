@@ -10,32 +10,42 @@ import SwiftUI
 
 struct Graph : View {
     let measurements: [Measurement]
-    let width:CGFloat = 1000.0
+    
+    let width: CGFloat = 1000.0
     
     var body: some View {
-        ScrollView{
+        ScrollView {
             VStack{
                 GeometryReader{ geometry in
                     Path{ path in
                         path.move(to: CGPoint(
                             x: 0.0,
-                            y: 500.0//CGFloat(self.measurements[i].value)
-                            )
+                            y: CGFloat(self.measurements[0].value) * (geometry.size.height / 20)
                         )
-                        
-                        
-                        for i in 0 ..< self.measurements.count {
-                            path.addLine(to: CGPoint(
-                                x: CGFloat(i)*(geometry.size.width/24),
-                                y: CGFloat(self.measurements[i].value) * (geometry.size.height / 20)
-                                )
-                            )
-                        }
-                        }
-                        .strokedPath(StrokeStyle(lineWidth: 1))
+                    )
                     
-                    }.frame(width: width, height: 100)
+                    
+                    for i in 0 ..< self.measurements.count {
+                        path.addLine(to: CGPoint(
+                            x: CGFloat(i)*(geometry.size.width/24),
+                            y: CGFloat(self.measurements[i].value) * (geometry.size.height / 20)
+                        )
+                    )
+                }
             }
+            .strokedPath(StrokeStyle(lineWidth: 1))
+            
+            }.frame(width: width, height: 100)
+            
+            Spacer()
+            
+            ZStack{
+                    ForEach((0 ..< 24)){i in
+                        Text("\(i)")
+                            .offset(x: (self.width/24)*CGFloat(i) - self.width/2, y: 0)
+                    }
+                }
+            }.padding()
         }
     }
 }

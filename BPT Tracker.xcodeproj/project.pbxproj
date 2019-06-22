@@ -18,6 +18,7 @@
 		B47EC69222BA214F0035C45C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B47EC69122BA214F0035C45C /* Assets.xcassets */; };
 		B47EC69522BA214F0035C45C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B47EC69422BA214F0035C45C /* Preview Assets.xcassets */; };
 		B47EC69822BA214F0035C45C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B47EC69622BA214F0035C45C /* LaunchScreen.storyboard */; };
+		B4F4BE4422BE05C6004AA49B /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F4BE4322BE05C6004AA49B /* TestView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		B47EC69422BA214F0035C45C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B47EC69722BA214F0035C45C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B47EC69922BA214F0035C45C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4F4BE4322BE05C6004AA49B /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				B47EC69322BA214F0035C45C /* Preview Content */,
 				B470A60222BA4A0500872D82 /* MeasurementRow.swift */,
 				B470A60622BA515C00872D82 /* Graph.swift */,
+				B4F4BE4322BE05C6004AA49B /* TestView.swift */,
 				B42BD84B22BBA5AC0036E7D3 /* Data.swift */,
 			);
 			path = "BPT Tracker";
@@ -167,6 +170,7 @@
 				B470A60522BA4A6A00872D82 /* Measurement.swift in Sources */,
 				B470A60322BA4A0500872D82 /* MeasurementRow.swift in Sources */,
 				B47EC69022BA214A0035C45C /* ContentView.swift in Sources */,
+				B4F4BE4422BE05C6004AA49B /* TestView.swift in Sources */,
 				B470A60922BA9ABE00872D82 /* PreferencesView.swift in Sources */,
 				B42BD84C22BBA5AC0036E7D3 /* Data.swift in Sources */,
 			);
