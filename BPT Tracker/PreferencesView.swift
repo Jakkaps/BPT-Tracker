@@ -17,9 +17,14 @@ struct PreferencesView : View {
     @State private var until = Date()
     @State private var showingDatePickerAlert = false
     
-    private var formatter: DateFormatter{
+    private var fullDateFormatter: DateFormatter{
         let f = DateFormatter()
         f.dateFormat = "MM-dd-yyy"
+        return f
+    }
+    private var hourFormatter: DateFormatter{
+        let f = DateFormatter()
+        f.dateFormat = "HH:00"
         return f
     }
     
@@ -41,7 +46,7 @@ struct PreferencesView : View {
                         Spacer()
                         Picker(selection: $start, label: Text("")) {
                             ForEach(0 ..< 24){
-                                Text("\($0):00").tag($0)
+                                Text("\(self.hourFormatter.string(from: self.hourFormatter.date(from: String($0))!) )").tag($0)
                             }
                         }
                     }
@@ -53,7 +58,7 @@ struct PreferencesView : View {
                     Spacer()
                     Picker(selection: $end, label: Text("")) {
                         ForEach(0 ..< 24){
-                            Text("\($0):00").tag($0)
+                            Text("\(self.hourFormatter.string(from: self.hourFormatter.date(from: String($0))!) )").tag($0)
                         }
                     }
                 }
