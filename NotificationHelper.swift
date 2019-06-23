@@ -78,6 +78,8 @@ class NotificationHelper{
                         let request = UNNotificationRequest(identifier: "non-unique string", content: content, trigger: trigger)
                         center.add(request)
                     }
+                }else{
+                    stop = true
                 }
             }
         }
