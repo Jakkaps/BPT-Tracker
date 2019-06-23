@@ -45,7 +45,7 @@ class Data: BindableObject{
     
     //Returns a dictionary containing the hour of day as the key and the averaged concentration as the value
     func getAverageMeasurements() -> [Measurement]{
-        var averagedMeasurements = [Measurement]()
+        var measurementsByHour = [[Measurement]]()
         
         let formatter = DateFormatter()
         formatter.dateFormat = "HH"
@@ -58,7 +58,8 @@ class Data: BindableObject{
             }
             hourString += "\(i)"
             
-            averagedMeasurements.append(Measurement(date: formatter.date(from: hourString) ?? Date(), value: 0))
+            
+            measurementsByHour[i].append(Measurement(date: formatter.date(from: hourString) ?? Date(), value: 0))
             
             // TODO: Error handling
         }
@@ -67,7 +68,18 @@ class Data: BindableObject{
             //Little hack to get the hour of the measurement as an int we can use as the index
             let hour = Int(formatter.string(from: measurement.date)) ?? 0
             
-            averagedMeasurements[hour].value = Int(((averagedMeasurements[hour].value) + measurement.value)/2)
+            measurementsByHour[hour].append(measurement)
+        }
+        
+        //Average all the measurements on each hour
+        var averagedMeasurements = [Measurement]()
+        for measurements in measurementsByHour{
+            var allValues = 0
+            for measurement in measurements{
+                allValues += measurement.value
+            }
+            
+            averagedMeasurements.append(Measurement(date: Date(), value: Int(allValues/(measurements.count - 1))))
         }
     
         return averagedMeasurements
