@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C22B82B50EA00D7D3077EDD /* Pods_BPT_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C651017F5E286FD367AE4D49 /* Pods_BPT_Tracker.framework */; };
+		B41EEE3E22BFD82400E2755C /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41EEE3D22BFD82400E2755C /* IntroView.swift */; };
 		B42BD84C22BBA5AC0036E7D3 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42BD84B22BBA5AC0036E7D3 /* Data.swift */; };
 		B470A60322BA4A0500872D82 /* MeasurementRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B470A60222BA4A0500872D82 /* MeasurementRow.swift */; };
 		B470A60522BA4A6A00872D82 /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B470A60422BA4A6A00872D82 /* Measurement.swift */; };
@@ -24,6 +26,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		534D318428AFC6395FAAD4DC /* Pods-BPT Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BPT Tracker.debug.xcconfig"; path = "Target Support Files/Pods-BPT Tracker/Pods-BPT Tracker.debug.xcconfig"; sourceTree = "<group>"; };
+		8DADF75F6A1F3F852B27D9C7 /* Pods-BPT Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BPT Tracker.release.xcconfig"; path = "Target Support Files/Pods-BPT Tracker/Pods-BPT Tracker.release.xcconfig"; sourceTree = "<group>"; };
+		B41EEE3D22BFD82400E2755C /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		B42BD84B22BBA5AC0036E7D3 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		B470A60222BA4A0500872D82 /* MeasurementRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementRow.swift; sourceTree = "<group>"; };
 		B470A60422BA4A6A00872D82 /* Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurement.swift; sourceTree = "<group>"; };
@@ -40,6 +45,7 @@
 		B47EC69722BA214F0035C45C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B47EC69922BA214F0035C45C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4F4BE4322BE05C6004AA49B /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		C651017F5E286FD367AE4D49 /* Pods_BPT_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BPT_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,19 +53,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C22B82B50EA00D7D3077EDD /* Pods_BPT_Tracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B1FE72AB7F089F745B20D53 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				534D318428AFC6395FAAD4DC /* Pods-BPT Tracker.debug.xcconfig */,
+				8DADF75F6A1F3F852B27D9C7 /* Pods-BPT Tracker.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		B47EC67F22BA214A0035C45C = {
 			isa = PBXGroup;
 			children = (
-				B472A88022BF57F000C5A32D /* NotificationHelper.swift */,
-				B470A60422BA4A6A00872D82 /* Measurement.swift */,
 				B47EC68A22BA214A0035C45C /* BPT Tracker */,
 				B47EC68922BA214A0035C45C /* Products */,
+				6B1FE72AB7F089F745B20D53 /* Pods */,
+				BB626242CD8F7D2C97C9A746 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,8 +90,11 @@
 		B47EC68A22BA214A0035C45C /* BPT Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				B472A88022BF57F000C5A32D /* NotificationHelper.swift */,
+				B470A60422BA4A6A00872D82 /* Measurement.swift */,
 				B47EC68B22BA214A0035C45C /* AppDelegate.swift */,
 				B47EC68D22BA214A0035C45C /* SceneDelegate.swift */,
+				B41EEE3D22BFD82400E2755C /* IntroView.swift */,
 				B47EC68F22BA214A0035C45C /* ContentView.swift */,
 				B47EC69122BA214F0035C45C /* Assets.xcassets */,
 				B47EC69622BA214F0035C45C /* LaunchScreen.storyboard */,
@@ -99,6 +118,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		BB626242CD8F7D2C97C9A746 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C651017F5E286FD367AE4D49 /* Pods_BPT_Tracker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +133,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B47EC69C22BA214F0035C45C /* Build configuration list for PBXNativeTarget "BPT Tracker" */;
 			buildPhases = (
+				A31BA1FCFD01AC6E902F434D /* [CP] Check Pods Manifest.lock */,
 				B47EC68422BA214A0035C45C /* Sources */,
 				B47EC68522BA214A0035C45C /* Frameworks */,
 				B47EC68622BA214A0035C45C /* Resources */,
+				DB8AAB12C4DEF023A576133A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -165,6 +194,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A31BA1FCFD01AC6E902F434D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BPT Tracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB8AAB12C4DEF023A576133A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BPT Tracker/Pods-BPT Tracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BPT Tracker/Pods-BPT Tracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BPT Tracker/Pods-BPT Tracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B47EC68422BA214A0035C45C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -175,6 +246,7 @@
 				B47EC68E22BA214A0035C45C /* SceneDelegate.swift in Sources */,
 				B470A60522BA4A6A00872D82 /* Measurement.swift in Sources */,
 				B470A60322BA4A0500872D82 /* MeasurementRow.swift in Sources */,
+				B41EEE3E22BFD82400E2755C /* IntroView.swift in Sources */,
 				B47EC69022BA214A0035C45C /* ContentView.swift in Sources */,
 				B472A88122BF57F000C5A32D /* NotificationHelper.swift in Sources */,
 				B4F4BE4422BE05C6004AA49B /* TestView.swift in Sources */,
@@ -314,6 +386,7 @@
 		};
 		B47EC69D22BA214F0035C45C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 534D318428AFC6395FAAD4DC /* Pods-BPT Tracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -334,6 +407,7 @@
 		};
 		B47EC69E22BA214F0035C45C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DADF75F6A1F3F852B27D9C7 /* Pods-BPT Tracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
