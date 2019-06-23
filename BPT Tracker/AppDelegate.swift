@@ -9,13 +9,30 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let _ = NotificationHelper().center.delegate = self
+        
         return true
+    }
+    
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        didReceive response: UNNotificationResponse,
+        withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        if response.notification.request.content.categoryIdentifier ==
+            "ENERGY_LEVEL" {
+            
+            //The last character of the action identifier of the action is the energy level the user selected
+            let energyLevel = Int(String(response.actionIdentifier.last ?? "5")) ?? 5
+            DataManager.data.add(measurement: Measurement(date: Date(), value: energyLevel))
+        }
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

@@ -32,7 +32,7 @@ struct ContentView : View {
         ActionSheet(title: Text("How energized are you?"), message: Text("Select a number from 1-10"), buttons: energyButtons)
     }
     
-    @ObjectBinding var data = Data()
+    @ObjectBinding var data = DataManager.data
     
     var body: some View {
         NavigationView {
@@ -45,6 +45,7 @@ struct ContentView : View {
                 }.navigationBarTitle(Text("Biological Prime Time"), displayMode: .inline)
                 .navigationBarItems(trailing:
                     Button(action: {
+                        NotificationHelper().testNotification()
                         self.showEnergziedSheet = true
                     }) {
                         Text("Add")

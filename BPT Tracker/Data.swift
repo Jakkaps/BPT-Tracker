@@ -13,6 +13,7 @@ import Combine
 class Data: BindableObject{
     var didChange = PassthroughSubject<Void, Never>()
     var defaults: UserDefaults = UserDefaults.standard
+    let notificationHelper = NotificationHelper()
     
     var allMeasurements: [Measurement]
     
@@ -69,6 +70,8 @@ class Data: BindableObject{
     func updatePreferences(start: Int, end: Int, frequency: Frequency, until: Date){
         let encoder = JSONEncoder()
         
+        // TODO: Error handling
+        
         if let savedData = try? encoder.encode(start) {
             defaults.set(savedData, forKey: defaultsKeys.startHour)
         } else {
@@ -93,6 +96,8 @@ class Data: BindableObject{
             print("Failed to save")
         }
         
+        let range = ["start": start, "end": end]
+        NotificationCenter.default.post(name: .didUpdateNotificationPreferences, object: nil, userInfo: range)
     }
     
     private func save(){
