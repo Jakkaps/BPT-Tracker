@@ -41,8 +41,13 @@ struct ContentView : View {
             }
             VStack{
                 Graph(measurements: measurements)
-                List(data.allMeasurements, rowContent: MeasurementRow.init)
-                }.navigationBarTitle(Text("Biological Prime Time"), displayMode: .inline)
+                List{
+                    ForEach(data.allMeasurements){ measurement in
+                        MeasurementRow(measurement: measurement)
+                        }.onDelete(perform: delete(at:))
+                    }
+                }
+                .navigationBarTitle(Text("Biological Prime Time"), displayMode: .inline)
                 .navigationBarItems(trailing:
                     Button(action: {
                         NotificationHelper().testNotification()
@@ -52,6 +57,12 @@ struct ContentView : View {
                 }
                 .presentation(showEnergziedSheet ? sheet : nil)
             )
+        }
+    }
+    
+    func delete(at offsets: IndexSet){
+        if let index = offsets.first{
+            data.remove(at: index)
         }
     }
 }

@@ -37,6 +37,12 @@ class Data: BindableObject{
         save()
     }
     
+    func remove(at index: Int){
+        allMeasurements.remove(at: index)
+        didChange.send(())
+        save()
+    }
+    
     //Returns a dictionary containing the hour of day as the key and the averaged concentration as the value
     func getAverageMeasurements() -> [Measurement]{
         var averagedMeasurements = [Measurement]()
@@ -96,8 +102,8 @@ class Data: BindableObject{
             print("Failed to save")
         }
         
-        let range = ["start": start, "end": end]
-        NotificationCenter.default.post(name: .didUpdateNotificationPreferences, object: nil, userInfo: range)
+        let data = ["start": start, "end": end, "frequency": frequency, "until": until] as [String : Any]
+        NotificationCenter.default.post(name: .didUpdateNotificationPreferences, object: nil, userInfo: data)
     }
     
     private func save(){
